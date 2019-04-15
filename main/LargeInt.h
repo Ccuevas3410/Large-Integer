@@ -37,10 +37,13 @@ public:
 	LargeInt operator+( LargeInt &);
 
 	LargeInt operator-( LargeInt &);
-	LargeInt operator*(const LargeInt &);
-	LargeInt operator/(const LargeInt &);
-	LargeInt operator%(const LargeInt &);
-//	LargeInt operator+(const LargeInt &);
+	LargeInt operator*( LargeInt &);
+	LargeInt operator/( LargeInt &);
+	LargeInt operator%( LargeInt &);
+    bool operator==( LargeInt &);
+
+
+	bool operator!=( LargeInt &);
 
 
 	

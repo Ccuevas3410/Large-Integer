@@ -141,6 +141,8 @@ LargeInt LargeInt::operator-(LargeInt &obj) {
 	int sizeOne = digits.length;
 	int sizeTwo = obj.digits.length;
 
+	if (sizeOne == sizeTwo)
+		cout << " EQUAL";
 
 	if (sizeOne <= sizeTwo)
 	{
@@ -153,7 +155,7 @@ LargeInt LargeInt::operator-(LargeInt &obj) {
 			}
 			else
 			{
-				result.digits.insertItemFirst((*j - borrow) - *j);
+				result.digits.insertItemFirst((*j - borrow) - *i);
 				borrow = 0;
 			}
 			j--;
@@ -162,4 +164,59 @@ LargeInt LargeInt::operator-(LargeInt &obj) {
 
 	return result;
 }
+bool LargeInt:: operator== ( LargeInt& obj)
+{
+	Iterator <int> i = digits.last();
+	Iterator <int> j = obj.digits.last();
 
+
+	int sizeOne = digits.length;
+	int sizeTwo = obj.digits.length;
+
+	bool same = false;
+	if (sizeOne == sizeTwo )
+	{
+		for (; i != digits.end(); i--)
+		{
+			if (*i != *j) {
+			
+				same = false;
+			}
+			else 
+			{
+				same = true;
+			}
+			j--;
+		}
+	}
+	
+	return same;
+}
+
+bool LargeInt::operator!=( LargeInt& obj) {
+
+
+		Iterator<int> i = digits.last();
+		Iterator <int> j = obj.digits.last();
+
+		int sizeOne = digits.length;
+		int sizeTwo = obj.digits.length;
+
+
+	bool same = true;
+
+
+
+	if (sizeOne != sizeTwo)
+	{
+		same = false;
+	}
+	else if (sizeOne == sizeTwo && (*i) != (*j)){
+
+		same = false;
+		
+	}
+
+	return same;
+
+}
